@@ -9,10 +9,12 @@ public class Greeter {
    * This is a constructor.
    */
   public Greeter() {
-
   }
 
-  public String greet(final String someone) {
+  /**
+   * Exemplo
+   */  
+  public final String greet(final String someone) {
     return String.format("Ei, %s!", someone);
   }
 }
