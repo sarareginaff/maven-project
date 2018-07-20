@@ -1,5 +1,10 @@
 pipeline {
     agent any
+    
+    triggers {
+         pollSCM('* * * * *') // Polling Source Control
+     }
+    
     stages{
         stage('Build'){
             steps {
@@ -25,15 +30,6 @@ pipeline {
                 }
 
                 build job: 'Deploy-to-Prod'
-            }
-            post {
-                success {
-                    echo 'Code deployed to Production.'
-                }
-
-                failure {
-                    echo ' Deployment failed.'
-                }
             }
         }
 
